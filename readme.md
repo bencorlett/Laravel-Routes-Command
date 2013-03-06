@@ -1,10 +1,4 @@
-To use this command, add the `RoutesCommand.php` file to your Laravel `app/commands` directory, and register it within `app/start/artisan.php`.
-
-```php
-Artisan::add(
-  new RoutesCommand($app->router->getRoutes()->all())
-);
-```
+To install this package, simply add `'JeffreyWay\RoutesCommand\RoutesCommandServiceProvider'` to your list of service provdiers in `app/config/app.php`.
 
 That's it! From the Terminal, run `php artisan routes` to view all of your app's registered routes.
 
