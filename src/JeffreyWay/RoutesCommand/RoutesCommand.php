@@ -1,18 +1,8 @@
-<?php
+<?php namespace JeffreyWay\RoutesCommand;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-
-/*
-
-Don't forget to add this command to start/artisan.php
-
-Artisan::add(
-	new RoutesCommand($app->router->getRoutes()->all())
-);
-
- */
 
 class RoutesCommand extends Command {
 
@@ -62,7 +52,7 @@ class RoutesCommand extends Command {
 	 */
 	public function fire()
 	{
-		if ( empty($this->routes) )
+		if (empty($this->routes))
 		{
 			return $this->info('Please register a route first.');
 		}
@@ -110,7 +100,7 @@ class RoutesCommand extends Command {
 		);
 
 		// And now echo the desired info for each route
-		foreach($this->routesInfo as $route)
+		foreach ($this->routesInfo as $route)
 		{
 			$this->info(
 				str_pad($route['uri'], $widths['uris']) .
@@ -133,18 +123,18 @@ class RoutesCommand extends Command {
 		$widths = [];
 
 		$cols = [
-			'uris' => array_pluck($this->routesInfo, 'uri'),
+			'uris'    => array_pluck($this->routesInfo, 'uri'),
 			'actions' => array_pluck($this->routesInfo, 'action'),
-			'names' => array_pluck($this->routesInfo, 'name')
+			'names'   => array_pluck($this->routesInfo, 'name')
 		];
 
-		foreach($cols as $key => $col)
+		foreach ($cols as $key => $col)
 		{
 			$width = 0;
 
-			foreach($col as $item)
+			foreach ($col as $item)
 			{
-				if ( strlen($item) > $width )
+				if (strlen($item) > $width)
 				{
 					$width = strlen($item);
 				}
@@ -179,8 +169,8 @@ class RoutesCommand extends Command {
 	protected function getAction($info)
 	{
 		return isset($info->getOptions()['_uses'])
-		? $info->getOptions()['_uses']
-		: 'Closure';
+			? $info->getOptions()['_uses']
+			: 'Closure';
 	}
 
 }
