@@ -2,7 +2,7 @@ To install this package, simply add `'JeffreyWay\RoutesCommand\RoutesCommandServ
 
 That's it! From the Terminal, run `php artisan routes` to view all of your app's registered routes.
 
-![routes command](https://github.com/JeffreyWay/laravel-routes-command/raw/master/img/routes.png)
+![routes command](https://github.com/bencorlett/Laravel-Routes-Command/blob/master/img/routes.png)
 
 The output is separated into three columns:
 
